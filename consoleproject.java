@@ -1,7 +1,7 @@
-mport java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class consoleproject {
+public class Chatb {
     private static final String[] HOTEL_NAMES = {"Hotel A", "Hotel B", "Hotel C", "Hotel D"};
     private static final double AC_ROOM_RATE = 100.0;
     private static final double NON_AC_ROOM_RATE = 80.0;
@@ -138,17 +138,19 @@ public class consoleproject {
             return false;
         }
     }
-
     private static boolean signup(Scanner scanner) {
         System.out.print("Enter a username: ");
-        String username = scanner.nextLine();
+        String username = scanner.nextLine().trim(); 
+        if (!username.matches("[a-zA-Z]+")) {
+            System.out.println("Username must contain only alphabetic characters.");
+            return false;
+        }
         System.out.print("Enter a password: ");
-        String password = scanner.nextLine();
-        // You might want to add more validation here
+        String password = scanner.nextLine().trim(); 
         LOGIN_USERNAME = username;
         LOGIN_PASSWORD = password;
+
         System.out.println("Signup successful! You can now login.");
-        return false;
+        return false; // Signup finished, user still needs to login
     }
 }
-
